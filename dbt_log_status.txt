@@ -1,0 +1,57 @@
+
+*** read_log_as_printable_lines
+13:19:42  1 of 5 START table model clean.apps_latest .................................. [RUN]
+
+13:19:42  2 of 5 START seed file test_data.apps ....................................... [RUN]
+
+13:19:42  3 of 5 START seed file test_data.expected_dbk_000 ........................... [RUN]
+
+13:19:42  4 of 5 START test assert_dbk_000 ............................................... [RUN]
+
+13:19:44  4 of 5 ERROR assert_dbk_000 .................................................... [ERROR in 1.77s]
+
+13:19:45  1 of 5 OK created table model clean.apps_latest ............................. [SUCCESS 1 in 2.75s]
+
+13:19:45  5 of 5 START table model data.dbk_000 ................................ [RUN]
+
+13:19:47  2 of 5 OK loaded seed file test_data.apps ................................... [INSERT 3 in 4.61s]
+
+13:19:47  3 of 5 OK loaded seed file test_data.expected_dbk_000 ....................... [INSERT 3 in 4.61s]
+
+13:19:47  5 of 5 OK created table model data.dbk_000 ........................... [SUCCESS 1 in 1.96s]
+
+
+*** read_log_as_dbt_models_status
+DBTModelStatus:	id: 1	model: table model clean.apps_latest .................................. 	status: Status.STARTED	runtime: None	raw: 13:19:42  1 of 5 START table model clean.apps_latest .................................. [RUN]
+
+DBTModelStatus:	id: 2	model: seed file test_data.apps ....................................... 	status: Status.STARTED	runtime: None	raw: 13:19:42  2 of 5 START seed file test_data.apps ....................................... [RUN]
+
+DBTModelStatus:	id: 3	model: seed file test_data.expected_dbk_000 ........................... 	status: Status.STARTED	runtime: None	raw: 13:19:42  3 of 5 START seed file test_data.expected_dbk_000 ........................... [RUN]
+
+DBTModelStatus:	id: 4	model: test assert_dbk_000 ............................................... 	status: Status.STARTED	runtime: None	raw: 13:19:42  4 of 5 START test assert_dbk_000 ............................................... [RUN]
+
+DBTModelStatus:	id: 4	model: assert_dbk_000 .................................................... 	status: Status.ERROR	runtime: 1.77	raw: 13:19:44  4 of 5 ERROR assert_dbk_000 .................................................... [ERROR in 1.77s]
+
+DBTModelStatus:	id: 1	model: created table model clean.apps_latest ............................. 	status: Status.PASS	runtime: 2.75	raw: 13:19:45  1 of 5 OK created table model clean.apps_latest ............................. [SUCCESS 1 in 2.75s]
+
+DBTModelStatus:	id: 5	model: table model data.dbk_000 ................................ 	status: Status.STARTED	runtime: None	raw: 13:19:45  5 of 5 START table model data.dbk_000 ................................ [RUN]
+
+DBTModelStatus:	id: 2	model: loaded seed file test_data.apps ................................... 	status: Status.PASS	runtime: 4.61	raw: 13:19:47  2 of 5 OK loaded seed file test_data.apps ................................... [INSERT 3 in 4.61s]
+
+DBTModelStatus:	id: 3	model: loaded seed file test_data.expected_dbk_000 ....................... 	status: Status.PASS	runtime: 4.61	raw: 13:19:47  3 of 5 OK loaded seed file test_data.expected_dbk_000 ....................... [INSERT 3 in 4.61s]
+
+DBTModelStatus:	id: 5	model: created table model data.dbk_000 ........................... 	status: Status.PASS	runtime: 1.96	raw: 13:19:47  5 of 5 OK created table model data.dbk_000 ........................... [SUCCESS 1 in 1.96s]
+
+
+*** consolidate_dbt_models_status
+DBTModelStatus:	id: 1	model: created table model clean.apps_latest ............................. 	status: Status.COMPLETED	runtime: 2.75
+DBTModelStatus:	id: 2	model: loaded seed file test_data.apps ................................... 	status: Status.COMPLETED	runtime: 4.61
+DBTModelStatus:	id: 3	model: loaded seed file test_data.expected_dbk_000 ....................... 	status: Status.COMPLETED	runtime: 4.61
+DBTModelStatus:	id: 4	model: assert_dbk_000 .................................................... 	status: Status.COMPLETED_ERROR	runtime: 1.77
+DBTModelStatus:	id: 5	model: created table model data.dbk_000 ........................... 	status: Status.COMPLETED	runtime: 1.96
+
+*** top_n_runtime_dbt_models_status
+(3, 'loaded seed file test_data.expected_dbk_000 ....................... ', 4.61)
+(1, 'created table model clean.apps_latest ............................. ', 2.75)
+(5, 'created table model data.dbk_000 ........................... ', 1.96)
+(4, 'assert_dbk_000 .................................................... ', 1.77)
