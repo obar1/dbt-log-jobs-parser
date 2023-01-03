@@ -1,0 +1,30 @@
+[0m13:19:39  Running with dbt=1.2.3
+[0m13:19:39  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dwh
+
+[0m13:19:39  Found 2 models, 1 test, 0 snapshots, 1 analysis, 481 macros, 0 operations, 2 seed files, 1 source, 0 exposures, 0 metrics
+[0m13:19:39  
+[0m13:19:42  Concurrency: 4 threads (target='dev')
+[0m13:19:42  
+[0m13:19:42  1 of 5 START table model clean.apps_latest .................................. [RUN]
+[0m13:19:42  2 of 5 START seed file test_data.apps ....................................... [RUN]
+[0m13:19:42  3 of 5 START seed file test_data.expected_dbk_000 ........................... [RUN]
+[0m13:19:42  4 of 5 START test assert_dbk_000 ............................................... [RUN]
+[0m13:19:44  4 of 5 ERROR assert_dbk_000 .................................................... [[31mERROR[0m in 1.77s]
+[0m13:19:45  1 of 5 OK created table model clean.apps_latest ............................. [[32mSUCCESS 1[0m in 2.75s]
+[0m13:19:45  5 of 5 START table model data.dbk_000 ................................ [RUN]
+[0m13:19:47  2 of 5 OK loaded seed file test_data.apps ................................... [[32mINSERT 3[0m in 4.61s]
+[0m13:19:47  3 of 5 OK loaded seed file test_data.expected_dbk_000 ....................... [[32mINSERT 3[0m in 4.61s]
+[0m13:19:47  5 of 5 OK created table model data.dbk_000 ........................... [[32mSUCCESS 1[0m in 1.96s]
+[0m13:19:47  
+[0m13:19:47  Finished running 1 test, 2 table models, 2 seeds in 0 hours 0 minutes and 8.16 seconds (8.16s).
+[0m13:19:47  
+[0m13:19:47  [31mCompleted with 1 error and 0 warnings:[0m
+[0m13:19:47  
+[0m13:19:47  [33mDatabase Error in test assert_dbk_000 (tests/e2e/assert_dbk_000.sql)[0m
+[0m13:19:47    001003 (42000): SQL compilation error:
+[0m13:19:47    syntax error line 10 at position 4 unexpected ')'.
+[0m13:19:47    compiled SQL at target/run/dwh_obar1/tests/e2e/assert_dbk_000.sql
+[0m13:19:47  
+[0m13:19:47  Done. PASS=4 WARN=0 ERROR=1 SKIP=0 TOTAL=5
